@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+char *mots_salon[10] = {"salon", "sallon", "saloon", "slon", "saon", "saln","salo","saalon","salonn",};
+char *mots_cuisine[10] = {"cuisine", "kuisine", "cuissine","cuisne","cuisinne","cusine","cuisiine",};
+char *mots_chambre[10] = {"chambre", "ch", "living room","chmbre","chabre","chamre","chambr",};
+char *mots_sdb[10] = {"Salle de bain", "sdb", "salle deau","wc","sale bain","salle du bain","salledebain",};
+
+
+
+
+
+bool F1(char phrase[50], char *tableau[10])
+{
+
+    for (int i = 0; i < 20; ++i)
+    {
+        
+        char * result = strstr(phrase, tableau[i]);
+
+        if ( result == NULL ) 
+        {
+            puts( "le mot du tableau n'existe pas dans la phrase " );
+            return false;
+        } 
+        else 
+        {
+            puts( "La chaîne contient le mot du tableau" );
+            return true;
+        }
+    }
+
+}
+
+
+int main(int argc, char const *argv[])
+{
+
+    char buffer[ 255 ];
+    printf( "Veuillez saisir votre souhait : \n" );
+    scanf( "%[^\n]", buffer );
+    fgetc( stdin );
+
+    bool bool_salon = F1(buffer, mots_salon);
+    bool bool_chambre = F1(buffer, mots_chambre);
+    bool bool_cuisine = F1(buffer, mots_cuisine);
+    bool bool_sdb = F1(buffer, mots_sdb);
+
+
+
+
+    return 0;
+}
